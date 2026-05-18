@@ -165,3 +165,138 @@ print(set3)
 x = frozenset({"dia", "ana", "y"})
 print(x)
 print(type(x))
+
+# --- Dictionaries ---
+# they store data in key : value pairs
+dictionary_one = {
+    "title": "1974",
+    "author": "George",
+    "genre": "Distopia",
+    "year" : 1980 # Different data types can be store
+}
+
+print(dictionary_one)
+
+# Dictionary items are ordered, changeable, and do not allow duplicates.
+# Duplicate values will overwrite existing values
+print(dictionary_one["title"]) # Use the key to get the value
+
+dictionary_two = dict(title = "Jungle", age = 12, genre = "Fiction", sellable = False) # Constructor with just 1 curly brackets
+print(dictionary_two) 
+
+# To print the value I can also use .get() func
+
+x = dictionary_two.get("title")
+print(x)
+
+x = dictionary_one.keys() # this will return the list of keys
+print(type(x))
+print(x)
+
+dictionary_one["Portada"] = False
+
+print(x) # X gets updated as well after inserting a new value to the list that was refered before
+
+print(dictionary_one.values()) # values() method return a list of the values stored in a dictionary. If I update a value, the 'X' variable will be updated as well
+
+# Items will return each pair of values as a tuple
+x = dictionary_one.items()
+print(type(x))
+print(x)
+
+# Using an if it will look if the key exists
+if "title" in x:
+    print("exists")
+else:
+    print("No")
+
+# Updating
+dictionary_one.update({"title": "Jose"})
+dictionary_one["title"] = "Carlos"
+print(dictionary_one)
+
+# To add an item just use a new key : value or with the update method
+dictionary_one["Test"] = 10
+dictionary_one.update({"Tiberio": "Cuatro"})
+print(dictionary_one)
+
+# Removing items from a dictionary
+dictionary_one.pop("Test") # del can also be used
+print(dictionary_one)
+dictionary_one.popitem() #removes last inserted item
+print(dictionary_one)
+del dictionary_one ["year"] # this can also delete the dictionary completely if no key is specified del dictionary_one
+print(dictionary_one)
+
+# Clear the dictionary removes all elements
+# dictionary_one.clear()
+
+# Looping
+for x in dictionary_one:
+    print(x)
+# To print one by one
+for x in dictionary_one:
+    print(dictionary_one[x])
+
+for x in dictionary_one.values():
+    print(x)
+
+for x in dictionary_one.keys():
+    print(x)
+
+# To loop keys and values, I need 2 variables, one for keys one for values 
+for x, y in dictionary_one.items(): # I need to use the items method since it returns tuples
+    print(x, y)
+
+# Copying a dictionary with .copy() or constructor
+test = dictionary_one.copy()
+print(test)
+test2 = dict(test)
+print(test2)
+
+# Nested dictionary
+nest = {
+    "dictionary 1": {
+        "name" : "bruno",
+        "last_name" : "test"
+    },
+    "dictionary 2" : {
+        "animal" : "lemur",
+        "name" : "zaboomafoo"
+    },
+    "dictionary 3" : {
+        "type" : "Boolean",
+        "data" : False
+    }
+}
+
+print(nest)
+
+# I can also create 3 separate dictionaries and nest them in 1 single dictionary
+child1 = {
+  "name" : "Emil",
+  "year" : 2004
+}
+child2 = {
+  "name" : "Tobias",
+  "year" : 2007
+}
+child3 = {
+  "name" : "Linus",
+  "year" : 2011
+}
+
+myfamily = {
+  "child1" : child1,
+  "child2" : child2,
+  "child3" : child3
+}
+print (myfamily)
+# To access items from a nested dictionary, you use the name of the dictionaries, starting with the outer dictionary
+print(nest["dictionary 1"]["name"])
+
+for x, obj in nest.items():
+    print(x)
+
+for y in obj:
+    print(y)
