@@ -215,3 +215,9 @@ def myfunction():
   return "Have a great day!"
 
 print(myfunction.__name__ + "2")
+
+person1 = {
+  "name": "John",
+  "age": 36,
+  "country": "Norway"
+}
