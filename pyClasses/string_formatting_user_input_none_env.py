@@ -89,12 +89,32 @@ while y == True:
 
 print(f"Here's your number {x}")
 
-# --- Environments ---
+# --- Virtual Environments ---
 '''
-Think of a virtual environment as a separate container for each Python project. Each container:
+A virtual environment is a separate container for each Python project. Where Each container:
 
 Has its own Python interpreter
 Has its own set of installed packages
 Is isolated from other virtual environments
 Can have different versions of the same package
+
+It prevents package version conflicts between projects
+Makes projects more portable and reproducible
+Keeps your system Python installation clean
+Allows testing with different Python versions
 '''
+
+#  python -m venv myfirstproject
+'''
+myfirstproject
+  Include
+  Lib
+  Scripts
+  .gitignore
+  pyvenv.cfg
+  '''
+
+# To use the virtual environment
+# myfirstproject\Scripts\activate
+# To exit the environment: deactivate in the cmd or powershell
+# to delete  rmdir /s /q myfirstproject or Remove-Item -Recurse -Force myfirstproject
